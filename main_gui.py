@@ -5,6 +5,11 @@ from channergy import access, new_account, update_facility, retrieval
 import PySimpleGUI as sg
 import csv, re, time, webbrowser, subprocess, pyperclip
 
+"""
+This is the main GUI, backbone for running Oasis and bringing modules together.
+
+"""
+
 sg.theme('DarkTanBlue')
 
 # creating dict using comprehension of enum class
@@ -92,7 +97,7 @@ layout = [
     [clear_button]
 ]
 
-window = sg.Window('Synergy', layout, use_ttk_buttons=True, finalize=True, resizable=True)
+window = sg.Window('Oasis', layout, use_ttk_buttons=True, finalize=True, resizable=True)
 
 if __name__ == "__main__":
     access()
