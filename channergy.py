@@ -8,20 +8,19 @@ ahk = AHK()
 
 
 def access():
-    # win_customer = ahk.win_get(title='Search for Customer')
-    # win_report = ahk.win_get(title='Shazam Report Wizard')
-    # try:
-    #     win_report.close()
-    #     win_customer.close()
-    # except AttributeError:
-    #     pass
-    # kb.send('esc')
-    # win_main = ahk.win_get(title='Channergy 2022')
-    win_main = ahk.win_get(title='*Untitled - Notepad')
+    win_customer = ahk.win_get(title='Search for Customer')
+    win_report = ahk.win_get(title='Shazam Report Wizard')
     try:
+        win_report.close()
+        win_customer.close()
+    except AttributeError:
+        pass
+    kb.send('esc')
+    try:
+        win_main = ahk.win_get(title='Channergy 2022')
         win_main.activate()
     except AttributeError:
-        subprocess.run(['Notepad'])
+        subprocess.run(['Channergy 2022'])
 
 
 def orient_customer(current: bool = True):
@@ -56,7 +55,7 @@ def new_account(first_name, last_name, inmate_number, facility):
     access()
     orient_customer(current=False)
     print('this is input to new_account = ', len(facility))
-    if len(facility) == 2:  # two dict objects, [0] will refer to billing, [1] to shipping
+    if len(facility) == 2:  # tuple has two dict objects, [0] refers to billing, [1] to shipping
         initial_data_entry(first_name, last_name, inmate_number)
         kb.write(facility[0]['bill_company_field'])
         kb.send('tab')
@@ -100,7 +99,6 @@ def new_account(first_name, last_name, inmate_number, facility):
 
 
 def facility_entry(facility):
-    print('facility being printed here', facility)
     if 'company_field' in facility:
         print('here at line 108')
         kb.write(facility['company_field'])
