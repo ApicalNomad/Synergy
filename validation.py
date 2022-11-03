@@ -2,6 +2,12 @@ from pydantic import BaseModel, validator, ValidationError
 from typing import Optional
 from enum import Enum, unique
 
+"""
+This module enables straightforward validation of input text in the main GUI. Pydantic turned out to be perfect for being to restrict/refine
+user input into values based on space constraints (Channergy fields have size limits) and especially ensuring that specific operations have 
+their required input before being executed. I found Enums to be perfect for handling the states/acronym relationship, as they're constants and
+have accessibility in a dict-like manner. 
+"""
 
 @unique
 class States(Enum):
@@ -92,7 +98,7 @@ class Field(BaseModel):
         max_val = 20
         last_name_id_length = 0
         assert field != '', 'Last name or inmate ID cannot be empty.'
-        if 'inmate_id' in values and field != '':
+        if 'inmate_id' in values and field != '': # if inmate ID is present, then it can confirm length restriction
             last_name_id_length += len(values['inmate_id'])
         last_name_id_length += len(field)
         if last_name_id_length > max_val:
