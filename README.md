@@ -1,4 +1,6 @@
-# Oasis (my first ever personal project)
+# Oasis 
+
+(1st personal project)
 
 This program is my solution to more efficiently interact with the Channergy e-commerce software. As the company dealt significantly with prison facilities, the structure of the program reflects the nuances of that.
 
