@@ -4,6 +4,13 @@ import pandas as pd
 import subprocess
 import PySimpleGUI as sg
 
+"""
+This module houses the methods for interacting with Channergy. Some testing code was left in, helps to easier backtrack and refine if needed.
+Primary component is the retrieval(..) method which is tasked with getting specific facility details from a CSV. This could also be implemented
+using the CSV module, but Pandas was more flexible and using Dataframes a bit more concise. One possible future revision could convert CSV into 
+a SQL database (pgAdmin has a feature that converts CSV into PostgreSQL). 
+"""
+
 ahk = AHK()
 
 
