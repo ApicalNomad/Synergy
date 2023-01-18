@@ -1,4 +1,4 @@
-# Oasis 
+# Synergy
 
 (1st personal project)
 
