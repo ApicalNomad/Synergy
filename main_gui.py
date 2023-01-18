@@ -6,7 +6,7 @@ import PySimpleGUI as sg
 import csv, re, time, webbrowser, subprocess, pyperclip
 
 """
-This is the main GUI, backbone for running Oasis and bringing modules together.
+This is the main GUI.
 
 """
 
